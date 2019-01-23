@@ -48,12 +48,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/horakjakub/github-user-search.git"
+    "url": "git+https://github.com/horakjakub/react-table-component.git"
   },
   "author": "Jakub Horak",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/horakjakub/github-user-search/issues"
+    "url": "https://github.com/horakjakub/react-table-component/issues"
   },
-  "homepage": "https://github.com/horakjakub/github-user-search#readme"
+  "homepage": "https://github.com/horakjakub/react-table-component#readme"
 }
