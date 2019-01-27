@@ -3,7 +3,7 @@ import { func, shape, string, number, oneOfType } from 'prop-types';
 
 function Cell({ cell, onCellSelect }){
     return (
-        <td onClick={ () => onCellSelect({ rowIndex: cell.rowIndex, columnIndex: cell.columnIndex }) }
+        <td onClick={ () => { onCellSelect({ rowIndex: cell.rowIndex, columnIndex: cell.columnIndex }) } }
         >
             { cell.value }
         </td>

@@ -1,20 +1,20 @@
 class Table { 
     _content = [];
-    _errorMessage = 'Uncorrect data format. Passed data should be 2 dimensional Array of Arrays, and all Arrays inside, should have same length.'
+    _errorMessage = 'Incorrect data format. Passed data should be 2 dimensional Array, and all internal Arrays should have same length.'
 
     constructor(content){
         this.set(content);
     }
 
     set(content){
-        if (this.isCorrect(content)) {
+        if (this.isDataFormatCorrect(content)) {
             this._content = content;
         } else { 
             throw new Error(this._errorMessage);
         }
     }
 
-    isCorrect(content) {
+    isDataFormatCorrect(content) {
         if(content instanceof Array) {
             let allRowsAreArrays = true;
             let allRowsHaveSameLength = true;

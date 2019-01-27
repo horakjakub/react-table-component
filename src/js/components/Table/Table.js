@@ -46,14 +46,18 @@ class TableComponent extends Component {
         }
     }
 
-    setTableValue = () => ({ rowIndex, columnIndex, value }) => { 
-        const { table, onTableChange } = this.props;
-        const tableCopy = table.getCopy();
+    removeCellFromEdited({rowIndex, columnIndex }) {
         const { editedCells } = this.state;
 
         const newEditedCells = editedCells.filter((cell) =>!(cell.rowIndex === rowIndex && cell.columnIndex === columnIndex));
         this.setState({ editedCells: newEditedCells });
 
+    }
+    setTableCellValue = () => ({ rowIndex, columnIndex, value }) => { 
+        const { table, onTableChange } = this.props;
+        const tableCopy = table.getCopy();
+
+        this.removeCellFromEdited({ rowIndex, columnIndex });
         tableCopy.changeSelectedValue({ rowIndex, columnIndex, value });
         onTableChange(tableCopy);
     }
@@ -93,7 +97,7 @@ class TableComponent extends Component {
                                 key={ j }
                                 cell={ { value, rowIndex, columnIndex: j } }
                                 editedCells={ editedCells }
-                                onCellValueChange={ this.setTableValue() }
+                                onCellValueChange={ this.setTableCellValue() }
                                 onEditedCellsChange={ this.setEditedCells() }
                             /> 
                             :
@@ -123,8 +127,8 @@ class TableComponent extends Component {
 
     render(){ 
         const { table } = this.props;
-        const tableContent = table.get();
         const { mode } = this.state;
+        const tableContent = table.get();
         const tableWrapperClassName = mode === ADD_ROW_MODE ? `${tableWrapper} ${tableWrapperAddRow}` : tableWrapper;
 
         return (
