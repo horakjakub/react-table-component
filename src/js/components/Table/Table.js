@@ -4,7 +4,16 @@ import { func, object } from 'prop-types';
 import ControlPanel from './ControlPanel';
 import Cell from './Cell';
 import CellEditableValue from './CellEditableValue';
-import { table, tableContainer, tableAddColumn, tableAddRow, tableRemoveColumn, tableRemoveRow, tableWrapper, tableWrapperAddRow } from './Table.scss';
+import { 
+    table, 
+    tableContainer,
+    tableAddColumn, 
+    tableAddRow, 
+    tableRemoveColumn, 
+    tableRemoveRow, 
+    tableWrapper, 
+    tableWrapperAddRow
+} from './Table.scss';
 
 export const REMOVE_COLUMN_MODE = 'removeColumnMode';
 export const REMOVE_ROW_MODE = 'removeRowMode'; 
@@ -119,6 +128,7 @@ class TableComponent extends Component {
         return (
             mode === ADD_COLUMN_MODE || mode === ADD_ROW_MODE ?  
                 <button 
+                    className='green'
                     onClick={ this.modifyTable({ rowIndex: tableContent.length, columnIndex: tableContent[0].length }) }
                 >+</button> 
                 : null
