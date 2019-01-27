@@ -1,11 +1,11 @@
 import React from 'react';
 import { render }from 'react-dom';
 
-import Table from './src/js/components/Table';
+import TablePage from './src/js/pages/TablePage';
 
 const appWrapper = document.getElementById('root');
 
 appWrapper ? render(
-    <Table />,
+    <TablePage />,
     appWrapper
 ) : null;
