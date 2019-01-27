@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { arrayOf, func, shape, string, number } from 'prop-types';
 
 import Cell from '../Cell'
+import styles from './CellEditableValue.scss';
 
 class CellEditableValue extends Component {
     propTypes = {
@@ -26,12 +27,12 @@ class CellEditableValue extends Component {
 
         return (
             editedCell ? 
-                <td>
+                <td className={ styles.editedCell } >
                     <input type='text' value={ editedCell.value } onChange={ this.cellValueChanged(editedCell) }/> 
-                    <i onClick={ this.saveCellValue(editedCell) }>
+                    <i className='symbol green' onClick={ this.saveCellValue(editedCell) }>
                         V
                     </i>
-                    <i onClick={ this.removeCellFromEdited({ rowIndex, columnIndex }) }>
+                    <i className='symbol red' onClick={ this.removeCellFromEdited({ rowIndex, columnIndex }) }>
                         X
                     </i>
                 </td> : 

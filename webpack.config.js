@@ -27,6 +27,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
+                exclude: /global-styles/,
                 use: [
                     {
                         loader: 'style-loader'
@@ -45,7 +46,23 @@ module.exports = {
                         loader: 'sass-loader',
                     }
                 ],
-            }
+            },
+            {
+                test: /\.scss$/,
+                include: /global-styles/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+
+                        loader: 'sass-loader'
+                    }
+                ],
+            },
         ]
     },
     plugins: [

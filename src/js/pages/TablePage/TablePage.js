@@ -27,8 +27,8 @@ class TablePage extends Component {
                     onTableChange={ this.setTable() }
                 />
                 <div>
-                    <a href={ this.getCSVUrl(table) } download="table.csv">
-                        <button>EXPORT CSV</button>
+                    <a href={ this.getCSVUrl(table) } download='table.csv'>
+                        <button className='blue' >EXPORT CSV</button>
                     </a>
                 </div>
             </div>
@@ -37,6 +37,7 @@ class TablePage extends Component {
 
     getCSVUrl(table){
         const tableContent = table.get();
+        
         const csvContent = tableContent.reduce((acc, row) => {
             return `${acc}\r\n${row.join(',')}`;
         });

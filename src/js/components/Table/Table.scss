@@ -1,3 +1,5 @@
+@import 'src/styles/variables.scss';
+
 .tableContainer { 
     display: flex;
     flex-direction: column;
@@ -7,23 +9,36 @@
 
 .tableWrapper {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tableWrapperAddRow {
     flex-direction: column;
 }
 
-.table {  
-    border: 1px solid black;
+.table {
     border-collapse: collapse;
+    font-size: 1em;
     overflow: hidden;
     display: inline-block;
 }
 
 .table td {
-    padding: 5px;
-    border: 1px solid black;
+    padding: 0.5em;
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans', sans-serif;
     position: relative;
+}
+
+.table td input {
+    display: inline-flex;
+    font-size: 1em;
+    padding: 0 0.5em;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    width: 6em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .tableAddRow td:hover::before, .tableRemoveRow td:hover::before {
@@ -45,7 +60,7 @@
 }
 
 .tableAddRow td:hover::before , .tableAddColumn td:hover::after { 
-    background-color: rgb(135, 255, 80);
+    background-color: $green;
 }
 
 .tableAddRow td:hover::before {
@@ -57,7 +72,8 @@
 }
 
 .tableRemoveRow td:hover::before , .tableRemoveColumn td:hover::before {
-    background-color: rgb(255, 80, 80);
+    background-color: $red;
+    opacity: 0.2;
 }
 
 .tableRemoveRow td:hover::before { 
@@ -67,3 +83,4 @@
 .tableRemoveColumn td:hover::before { 
     width: 100%;
 }
+
