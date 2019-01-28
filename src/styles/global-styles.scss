@@ -1,6 +1,7 @@
 @import "css-reset";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import './variables.scss';
+@import './variables';
+@import './button';
 
 :global :root, :global body, :global #root {
   height: 100%;
@@ -8,56 +9,6 @@
 
 :global :root {
   font-size: 10px;
-}
-
-button {
-  font-family: 'Open Sans', sans-serif;
-  border: 0px;
-  outline: none;
-  cursor: pointer;
-  border-radius: 5px;
-  display: inline-block;
-  padding: 0.5em 1em;
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 0.5em;
-}
-
-button.green {
-  background: $green;
-}
-
-button.green:hover { 
-  background: lighten($green, 5%);
-}
-
-button.green:active { 
-  background: darken($green, 5%);
-}
-
-button.red { 
-  background: $red;
-}
-
-button.red:hover { 
-  background: lighten($red, 5%);
-}
-
-button.red:active { 
-  background: darken($red, 5%);
-}
-
-button.blue {
-  background: $blue;
-}
-
-button.blue:hover { 
-  background: lighten($blue, 5%);
-}
-
-button.blue:active { 
-  background: darken($blue, 5%);
 }
 
 .symbol {

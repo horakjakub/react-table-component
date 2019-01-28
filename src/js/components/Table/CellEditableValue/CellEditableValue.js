@@ -46,9 +46,7 @@ class CellEditableValue extends Component {
     cellValueChanged = ({ rowIndex, columnIndex }) => (event) => {
         const { value } = event.target;
         const { editedCells, onEditedCellsChange } = this.props;
-
-        const newEditedCells = 
-            editedCells.filter((cell) => !(cell.rowIndex === rowIndex && cell.columnIndex === columnIndex));
+        const newEditedCells = editedCells.filter((cell) => !(cell.rowIndex === rowIndex && cell.columnIndex === columnIndex));
         const editedCell = editedCells.find((cell) => cell.rowIndex === rowIndex && cell.columnIndex === columnIndex);
 
         editedCell.value = value;
@@ -74,6 +72,7 @@ class CellEditableValue extends Component {
  
     saveCellValue = ({ rowIndex, columnIndex, value }) => () => {
         const { onCellValueChange } = this.props;
+
         onCellValueChange({ rowIndex, columnIndex, value });
     }
 }

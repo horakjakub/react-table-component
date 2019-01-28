@@ -1,4 +1,4 @@
-@import 'src/styles/variables.scss';
+@import 'src/styles/variables';
 
 .tableContainer { 
     display: flex;
@@ -83,4 +83,3 @@
 .tableRemoveColumn td:hover::before { 
     width: 100%;
 }
-
