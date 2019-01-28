@@ -33,7 +33,10 @@ class TableComponent extends Component {
     }
 
     setTableMode = () => (mode) => {
-        this.setState({ mode });
+        this.setState({ 
+            mode,
+            editedCells: [], 
+        });
     }
 
     setEditedCells = () => (editedCells) => {
@@ -60,14 +63,14 @@ class TableComponent extends Component {
 
         const newEditedCells = editedCells.filter((cell) =>!(cell.rowIndex === rowIndex && cell.columnIndex === columnIndex));
         this.setState({ editedCells: newEditedCells });
-
     }
+
     setTableCellValue = () => ({ rowIndex, columnIndex, value }) => { 
         const { table, onTableChange } = this.props;
         const tableCopy = table.getCopy();
 
         this.removeCellFromEdited({ rowIndex, columnIndex });
-        tableCopy.changeSelectedValue({ rowIndex, columnIndex, value });
+        tableCopy.changeValue({ rowIndex, columnIndex, value });
         onTableChange(tableCopy);
     }
 
@@ -100,22 +103,24 @@ class TableComponent extends Component {
         return (
             <tr key={ rowIndex }>
                 {
-                    rowContent.map((value, j) => (
-                        mode === NORMAL_MODE ? 
+                    mode === NORMAL_MODE ? 
+                        rowContent.map((value, j) => (
                             <CellEditableValue 
                                 key={ j }
                                 cell={ { value, rowIndex, columnIndex: j } }
                                 editedCells={ editedCells }
                                 onCellValueChange={ this.setTableCellValue() }
                                 onEditedCellsChange={ this.setEditedCells() }
-                            /> 
-                            :
+                            />
+                        ))
+                        :
+                        rowContent.map((value, j) => (
                             <Cell 
                                 key={ j }
                                 cell={ { value, rowIndex, columnIndex: j } }
                                 onCellSelect={ this.modifyTable({ rowIndex, columnIndex: j }) }
                             />
-                    )) 
+                        )) 
                 }
             </tr>
         )

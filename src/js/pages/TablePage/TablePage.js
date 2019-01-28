@@ -8,7 +8,7 @@ class TablePage extends Component {
     state = { 
         table: new Table([
             [1, null, 'cat'],
-            [2, null, 'cat'],
+            [2, null, 'spy'],
             [1, 3, 'dog']
         ])
     }

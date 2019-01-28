@@ -46,7 +46,7 @@ class Table {
         return new Table(this._content.map((row) => row.slice()));
     }
 
-    changeSelectedValue({ rowIndex, columnIndex, value }){
+    changeValue({ rowIndex, columnIndex, value }){
         this._content[rowIndex][columnIndex] = value
     }
 
