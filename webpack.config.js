@@ -77,5 +77,4 @@ module.exports = {
             port: 3030,
         }),
     ],
-    devtool: 'source-map'
 };
