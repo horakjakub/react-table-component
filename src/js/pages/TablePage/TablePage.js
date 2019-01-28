@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import TableComponent from '../../components/Table';
-import Table from '../../models/Table'
+import Table from '../../models/Table';
 import { tablePage } from './TablePage.scss';
 
 class TablePage extends Component {
